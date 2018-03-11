@@ -44,20 +44,57 @@ I used hog function from skimage.feature to get the hog features and hog images.
 
 ##### one of the car images and its hog image in three channels are:
 
-![car0_ch1](./output_images/car_0_ch1.jpg)    ![car0_ch1_hog](./output_images/car_0_ch1_hog.jpg)
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/car_0_ch1.jpg"  width="100" height="100" ></div>
 
-![car0_ch2](./output_images/car_0_ch2.jpg)    ![car0_ch2_hog](./output_images/car_0_ch2_hog.jpg)
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/car_0_ch2.jpg"  width="100" height="100" ></div>
 
-![car0_ch3](./output_images/car_0_ch3.jpg)    ![car0_ch3_hog](./output_images/car_0_ch3_hog.jpg)
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/car_0_ch3.jpg"  width="100" height="100" ></div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/car_0_ch1_hog.jpg"  width="100" height="100" ></div>
+
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/car_0_ch2_hog.jpg"  width="100" height="100" ></div>
+
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/car_0_ch3_hog.jpg"  width="100" height="100" ></div>
+
+<br />
+<br />
+<br />
+<br />
+
 
 ##### one of the not car images and its hog image in three channels are:
 
-![notcar0_ch1](./output_images/notcar_0_ch1.jpg)  ![notcar0_ch1_hog](./output_images/notcar_0_ch1_hog.jpg)
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/notcar_0_ch1.jpg"  width="100" height="100" ></div>
 
-![notcar0_ch2](./output_images/notcar_0_ch2.jpg)  ![notcar0_ch2_hog](./output_images/notcar_0_ch2_hog.jpg)
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/notcar_0_ch2.jpg"  width="100" height="100" ></div>
 
-![notcar0_ch3](./output_images/notcar_0_ch3.jpg)  ![notcar0_ch3_hog](./output_images/notcar_0_ch3_hog.jpg)
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/notcar_0_ch3.jpg"  width="100" height="100" ></div>
 
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/notcar_0_ch1_hog.jpg"  width="100" height="100" ></div>
+
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/notcar_0_ch2_hog.jpg"  width="100" height="100" ></div>
+
+<div style="float:left;border:solid 1px 000;margin:5px;"><img src="./output_images/notcar_0_ch3_hog.jpg"  width="100" height="100" ></div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 #### 2.4 Combine and extract featrues
 
@@ -71,7 +108,7 @@ Labels also are added as 1 is car, 0 is not car.
 Then I use LinearSVC to train the data sets. Before the training, I spit the data sets for training and testing via train_test_split() function.
 
 
-when extract hog features, as the input image in the data set is 64 x64, I use the orient value 9, pix_per_cell 8 and cell_per_block 2 as the parameter values.
+when extract hog features, as the input image in the data set is 64 x64, I use the orient value 15, pix_per_cell 8 and cell_per_block 2 as the parameter values.
 
 I used Linear SVC to train the data, and test it after trarining.
 
@@ -130,3 +167,9 @@ As for the test images, the car detection rectangle num is increasing.So when I 
 Deep learning might be also involved and the car detection result can be according to multi-object-regconition method paralelly. There may be some help to improve the performance of the car detection.
 
 Another problem is the time cost of finding the cars. This will be more import in real driving. I wonder weather the time performance can meet the requriment in the highway. 
+
+
+Update:
+(1) I cropped some not cars images from the project video and added them into the not car images.
+(2) I adopted the reviewers suggestions, uesd RandomizedSearchCV to optimize the classifier hyperparameter C.
+And also used deque to store the heatmap of previous frames, increased the threshold.
