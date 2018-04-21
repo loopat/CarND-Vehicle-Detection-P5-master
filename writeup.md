@@ -108,7 +108,7 @@ Labels also are added as 1 is car, 0 is not car.
 Then I use LinearSVC to train the data sets. Before the training, I spit the data sets for training and testing via train_test_split() function.
 
 
-when extract hog features, as the input image in the data set is 64 x64, I use the orient value 15, pix_per_cell 8 and cell_per_block 2 as the parameter values.
+when extract hog features, as the input image in the data set is 64 x64, I use the orient value 9, pix_per_cell 8 and cell_per_block 2 as the parameter values.
 
 I used Linear SVC to train the data, and test it after trarining.
 
@@ -169,7 +169,14 @@ Deep learning might be also involved and the car detection result can be accordi
 Another problem is the time cost of finding the cars. This will be more import in real driving. I wonder weather the time performance can meet the requriment in the highway. 
 
 
-Update:
+Update 1st:
 (1) I cropped some not cars images from the project video and added them into the not car images.
 (2) I adopted the reviewers suggestions, uesd RandomizedSearchCV to optimize the classifier hyperparameter C.
 And also used deque to store the heatmap of previous frames, increased the threshold.
+
+Update 2nd:
+(1) Select the 'YCrCb' space.
+(2) Decrease deque max len to decrease the previous frame effect.
+
+Update 3rd:
+One main problem about the previous code and video is that I draw the boxes found in the function "find_cars". It mean that when boxes are found, the boxes will be added into the image or video. Even the heatmap and deque are used in the following process, these added boxes can not be remove. It leads to the case that it seems that there are a lot of false postive. 
