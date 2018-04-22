@@ -179,4 +179,8 @@ Update 2nd:
 (2) Decrease deque max len to decrease the previous frame effect.
 
 Update 3rd:
+<<<<<<< HEAD
 One main problem about the previous code and video is that I draw the boxes found in the function find_cars. It mean that when boxes are found, the boxes will be added into the image or video. Even the heatmap and deque are used in the following process, these added boxes can not be remove. It leads to the case that it seems that there are a lot of false postive. 
+=======
+One main problem about the previous code and video is that I draw the boxes found in the function "find_cars". It mean that when boxes are found, the boxes will be added into the image or video. Even the heatmap and deque are used in the following process, these added boxes can not be remove. It leads to the case that it seems that there are a lot of false postive. 
+>>>>>>> 22a0537279d6c5c7d06b1ed5d2d261b262b96294
